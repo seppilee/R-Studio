@@ -1,5 +1,5 @@
 library(ggplot2)
-# new
+#new branch
 dataPPL <- read.csv("/Users/cuba/Documents/GitHub/R-Studio/ppl.csv")
 	ppl <- aggregate(dataPPL$PPL, list(dataPPL$Epoch), min)
 	vppl <- aggregate(dataPPL$VPPL, list(dataPPL$Epoch), min)
@@ -31,3 +31,5 @@ dataPPL <- read.csv("/Users/cuba/Documents/GitHub/R-Studio/ppl.csv")
 	) +
 	
 	scale_color_manual(name = "PPL(Perplexity)", labels = c("Training PPL", "Validation PPL"), values = c("blue", "red")) 
+
+	
