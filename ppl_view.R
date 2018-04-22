@@ -1,6 +1,6 @@
 library(ggplot2)
 # new
-dataPPL <- read.csv("C:\\tmp\\ppl.csv")
+dataPPL <- read.csv("/Users/cuba/Documents/GitHub/R-Studio/ppl.csv")
 	ppl <- aggregate(dataPPL$PPL, list(dataPPL$Epoch), min)
 	vppl <- aggregate(dataPPL$VPPL, list(dataPPL$Epoch), min)
 	
