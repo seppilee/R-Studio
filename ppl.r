@@ -1,4 +1,5 @@
 library(ggplot2)
+#pp.csv from opennmt log file
 dataPPL <- read.csv("C:\\tmp\\ppl.csv")
 	ppl <- aggregate(dataPPL$PPL, list(dataPPL$Epoch), min)
 	vppl <- aggregate(dataPPL$VPPL, list(dataPPL$Epoch), min)
