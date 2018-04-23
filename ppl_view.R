@@ -1,5 +1,5 @@
 library(ggplot2)
-#new branch
+# log file from opennmt
 dataPPL <- read.csv("/Users/cuba/Documents/GitHub/R-Studio/ppl.csv")
 	ppl <- aggregate(dataPPL$PPL, list(dataPPL$Epoch), min)
 	vppl <- aggregate(dataPPL$VPPL, list(dataPPL$Epoch), min)
@@ -11,7 +11,7 @@ dataPPL <- read.csv("/Users/cuba/Documents/GitHub/R-Studio/ppl.csv")
     geom_line(data=vppl, aes(col="red")) +
     
     ylim(0,200) +
-	theme_bw() +
+	   theme_bw() +
 
 	labs(
 	  	title = "Learning Curve",
