@@ -2,7 +2,8 @@
 #-*- coding: utf-8 -*-
 
 """
-Opennmt log file simple formatting(ppl with min. value for each iteration
+Opennmt log file simple formatting ppl
+todo: ppl min. value each epoch
 """
 
 import sys
