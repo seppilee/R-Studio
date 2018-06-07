@@ -2,7 +2,7 @@
 #-*- coding: utf-8 -*-
 
 """
-Opennmt log file formatting
+Opennmt log file simple formatting(ppl with min. value for each iteration
 """
 
 import sys
@@ -18,25 +18,33 @@ STRING_RE = re.compile(r"(\d+)\s*;.+?;.+?;.+?; Perplexity ([0-9.]+)")
 
 #Validation perplexity: 79.13
 VAL_RE = re.compile(r"Validation perplexity: ([0-9.]+)")
-vppl = ""
 
 def main():
-    print "Epoch,PPL,VPPL"
+    print "Epoch PPL VPPL"
     vppl = ""
+    ppls = {}
     for line in sys.stdin:
        line = re.sub("\r|\n|\uFEFF", "", line)
        result = STRING_RE.search(line)
        val_ppl = VAL_RE.search(line)
        if result:
-           epoch = result.group(1)
+           e = result.group(1)
+           epoch = int(e)
            ppl = result.group(2)
-           print epoch, ",", ppl, ",", vppl
+           ppls[epoch] = ppl
+           #print "[dpbug]", epoch , ",", ppl, ",", vppl
+
        elif val_ppl:
            vppl = val_ppl.group(1)
-           print epoch, ",", ppl, ",", vppl
+           ppls[epoch] = ppl, vppl
+           #print "[debug]", epoch, ",", ppl, ",", vppl
        else:
            continue
+
+    for key, value in sorted(ppls.items()):
+        print key, ' '.join(value)
 
 
 if __name__ == '__main__':
     main()
+
